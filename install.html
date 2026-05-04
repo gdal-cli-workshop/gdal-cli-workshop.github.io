@@ -1,0 +1,630 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GDAL installation &mdash; GDAL CLI Tutorial Workshop  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+    <link rel="canonical" href="https://gdal-cli-workshop.github.io/install.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="GDAL new command line interface: introduction and advanced topics" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #353130" >
+
+          
+          
+          <a href="index.html">
+            
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">GDAL installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#linux">Linux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#conda-installation">Conda installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gdal-installation-in-a-dedicated-conda-environment">GDAL installation in a dedicated conda environment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#macos-x">MacOS X</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Conda installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">GDAL installation in a dedicated conda environment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#windows">Windows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Conda installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">GDAL installation in a dedicated conda environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-a-bash-shell">Install a Bash shell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-launcher-script">Create a launcher script</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #353130" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GDAL CLI Tutorial Workshop</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">GDAL installation</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/rouault/gdal_cli_workshop/edit/master/src/install.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="index.html" class="btn btn-neutral float-left" title="GDAL new command line interface: introduction and advanced topics" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gdal-installation">
+<h1>GDAL installation<a class="headerlink" href="#gdal-installation" title="Link to this heading"></a></h1>
+<p>This workshop requires GDAL 3.13.0, released May 2026.</p>
+<p>The suggested installation procedure is to use GDAL Conda builds. Conda is a
+system package management system that works on all major desktop operating system
+(Linux, Windows, MacOS X). It is mainly aimed at the Python ecosystem, but with
+a strong focus on tackling correctly the issue of software with native
+dependencies such as GDAL.</p>
+<section id="linux">
+<h2>Linux<a class="headerlink" href="#linux" title="Link to this heading"></a></h2>
+<section id="conda-installation">
+<h3>Conda installation<a class="headerlink" href="#conda-installation" title="Link to this heading"></a></h3>
+<p>If you already have a Conda installation, skip that paragraph.</p>
+<p>Download the Miniconda3 installer:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+</pre></div>
+</div>
+<p>Install it:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ sh Miniconda3-latest-Linux-x86_64.sh
+</pre></div>
+</div>
+<p>will output something like:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Welcome to Miniconda3 py313_26.1.1-1
+
+In order to continue the installation process, please review the license
+agreement.
+Please, press ENTER to continue
+</pre></div>
+</div>
+<p>Press Enter, then</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt;
+MINICONDA END USER LICENSE AGREEMENT
+
+Copyright Notice: Miniconda(R) (C) 2015, Anaconda, Inc.
+All rights reserved. Miniconda(R) is licensed, not sold.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer;
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided w
+ith the distribution;
+
+3. The name Anaconda, Inc. or Miniconda(R) may not be used to endorse or promote products derived from this software without specific prior written permission from Anaconda, Inc.; and
+
+4. Miniconda(R) may not be used to access or allow third parties to access Anaconda package repositories if such use would circumvent paid licensing requirements or is otherwise restri
+cted by the Anaconda Terms of Service.
+
+DISCLAIMER: THIS SOFTWARE IS PROVIDED BY ANACONDA &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ PARTICULAR PURPOSE , AND NON-INFRINGEMENT ARE DISCLAIMED. IN NO EVENT SHALL ANACONDA BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCL
+UDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER
+IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF MINICONDA(R), EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+Do you accept the license terms? [yes|no]
+&gt;&gt;&gt;
+</pre></div>
+</div>
+<p>Answer &quot;yes&quot;, or otherwise find another way of installing GDAL :-)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Miniconda3 will now be installed into this location:
+/home/{YOUR_USE_NAME_HERE}/miniconda3
+
+  - Press ENTER to confirm the location
+  - Press CTRL-C to abort the installation
+  - Or specify a different location below
+
+[/home/{YOUR_USE_NAME_HERE}/miniconda3] &gt;&gt;&gt;
+</pre></div>
+</div>
+<p>Press ENTER to confirm.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>PREFIX=/home/{YOUR_USE_NAME_HERE}/miniconda3
+Unpacking bootstrapper...
+Unpacking payload...
+
+Installing base environment...
+
+Downloading and Extracting Packages:
+
+
+## Package Plan ##
+
+  environment location: /home/{YOUR_USE_NAME_HERE}/miniconda3
+
+  added / updated specs:
+    - pkgs/main/linux-64::_libgcc_mutex==0.1=main
+      [ ... snip ... ]
+    - pkgs/main/noarch::tzdata==2025c=he532380_0
+
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main
+      [ ... snip ... ]
+  zstd               pkgs/main/linux-64::zstd-1.5.7-h11fc155_0
+
+
+Downloading and Extracting Packages:
+
+Preparing transaction: done
+Executing transaction: done
+installation finished.
+Do you wish to update your shell profile to automatically initialize conda?
+This will activate conda on startup and change the command prompt when activated.
+If you&#39;d prefer that conda&#39;s base environment not be activated on startup,
+   run the following command when conda is activated:
+
+conda config --set auto_activate_base false
+
+Note: You can undo this later by running `conda init --reverse $SHELL`
+
+Proceed with initialization? [yes|no]
+[no] &gt;&gt;&gt;
+</pre></div>
+</div>
+<p>For simplicity, do type &quot;yes&quot; (so against the suggestion)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>no change     /home/{YOUR_USE_NAME_HERE}/miniconda3/condabin/conda
+no change     /home/{YOUR_USE_NAME_HERE}/miniconda3/bin/conda
+no change     /home/{YOUR_USE_NAME_HERE}/miniconda3/bin/conda-env
+no change     /home/{YOUR_USE_NAME_HERE}/miniconda3/bin/activate
+no change     /home/{YOUR_USE_NAME_HERE}/miniconda3/bin/deactivate
+no change     /home/{YOUR_USE_NAME_HERE}/miniconda3/etc/profile.d/conda.sh
+no change     /home/{YOUR_USE_NAME_HERE}/miniconda3/etc/fish/conf.d/conda.fish
+no change     /home/{YOUR_USE_NAME_HERE}/miniconda3/shell/condabin/Conda.psm1
+no change     /home/{YOUR_USE_NAME_HERE}/miniconda3/shell/condabin/conda-hook.ps1
+no change     /home/{YOUR_USE_NAME_HERE}/miniconda3/lib/python3.13/site-packages/xontrib/conda.xsh
+no change     /home/{YOUR_USE_NAME_HERE}/miniconda3/etc/profile.d/conda.csh
+modified      /home/{YOUR_USE_NAME_HERE}/.bashrc
+
+==&gt; For changes to take effect, close and re-open your current shell. &lt;==
+
+Thank you for installing Miniconda3!
+</pre></div>
+</div>
+<p>As suggested, start a new terminal or source the updated <code class="file docutils literal notranslate"><span class="pre">~/.bahsrc</span></code>.</p>
+</section>
+<section id="gdal-installation-in-a-dedicated-conda-environment">
+<span id="install-gdal-linux"></span><h3>GDAL installation in a dedicated conda environment<a class="headerlink" href="#gdal-installation-in-a-dedicated-conda-environment" title="Link to this heading"></a></h3>
+<p>First, we will create a Conda &quot;environment&quot; for the purpose of this workshop,
+and will call it &quot;gdal&quot;. A Conda environment is a kind of workspace where you
+can install a set of packages that will not interfer with the ones of other
+environments. We use the &quot;conda-forge&quot; channel to get up-to-date official releases
+from the conda community.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ conda create --name gdal -c conda-forge
+Retrieving notices: done
+Channels:
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+
+==&gt; WARNING: A newer version of conda exists. &lt;==
+    current version: 25.7.0
+    latest version: 26.3.2
+
+Please update conda by running
+
+    $ conda update -n base -c conda-forge conda
+
+
+
+## Package Plan ##
+
+  environment location: /home/{YOUR_USE_NAME_HERE}/miniconda3/envs/gdal
+
+
+
+Proceed ([y]/n)? y
+</pre></div>
+</div>
+<p>Answer &quot;y&quot; and validate.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading and Extracting Packages:
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate gdal
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+$ conda activate gdal
+</pre></div>
+</div>
+<p>As suggested, you need to activate the newly created environment with:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ conda activate gdal
+</pre></div>
+</div>
+<p>When an environment is activated, new lines in the shell are prefixed with &quot;(name_of_environment)&quot;.</p>
+<p>Let's update the base Conda environment to save a later warning:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ conda update -n base -c conda-forge conda
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Channels:
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+
+==&gt; WARNING: A newer version of conda exists. &lt;==
+    current version: 25.7.0
+    latest version: 26.3.2
+
+Please update conda by running
+
+    $ conda update -n base -c conda-forge conda
+
+
+
+## Package Plan ##
+
+  environment location: /home/{YOUR_USE_NAME_HERE}/miniconda3
+
+  added / updated specs:
+    - conda
+
+
+The following packages will be UPDATED:
+
+  ca-certificates                      2026.2.25-hbd8a1cb_0 --&gt; 2026.4.22-hbd8a1cb_0
+  openssl                                  3.6.1-h35e630c_1 --&gt; 3.6.2-h35e630c_0
+
+
+Proceed ([y]/n)? y
+</pre></div>
+</div>
+<p>Answer &quot;y&quot; and validate.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading and Extracting Packages:
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+</pre></div>
+</div>
+<p>Now, we can finally install GDAL !</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(gdal) $ conda install gdal
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Channels:
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+
+## Package Plan ##
+
+  environment location: /home/{YOUR_USE_NAME_HERE}/miniconda3/envs/gdal
+
+  added / updated specs:
+    - gdal
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    ca-certificates-2026.4.22  |       hbd8a1cb_0         128 KB  conda-forge
+    gdal-3.13.0                |  py314hd76b233_4         1.8 MB  conda-forge
+    [ ... snip ...]
+    zlib-1.3.2                 |       h25fd6f3_2          94 KB  conda-forge
+    ------------------------------------------------------------
+                                           Total:        77.5 MB
+
+The following NEW packages will be INSTALLED:
+
+  _openmp_mutex      conda-forge/linux-64::_openmp_mutex-4.5-20_gnu
+  [ ... snip ...]
+  zstd               conda-forge/linux-64::zstd-1.5.7-hb78ec9c_6
+
+
+Proceed ([y]/n)? y
+</pre></div>
+</div>
+<p>Answer &quot;y&quot; and validate.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading and Extracting Packages:
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+</pre></div>
+</div>
+<p>Now let's check we got the GDAL we expected:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ gdal --version
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>GDAL 3.13.0 &quot;Iowa City&quot;, released 2026/05/04
+</pre></div>
+</div>
+</section>
+</section>
+<section id="macos-x">
+<h2>MacOS X<a class="headerlink" href="#macos-x" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Those instructions could not be verified due to lack of access to that platform.</p>
+</div>
+<section id="id1">
+<h3>Conda installation<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<p>If you already have a Conda installation, skip that paragraph.
+Otherwise follow the instructions at <a class="reference external" href="https://www.anaconda.com/docs/getting-started/miniconda/install/mac-gui-install">https://www.anaconda.com/docs/getting-started/miniconda/install/mac-gui-install</a></p>
+</section>
+<section id="id2">
+<h3>GDAL installation in a dedicated conda environment<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>Please follow related <a class="reference internal" href="#install-gdal-linux"><span class="std std-ref">Linux instructions</span></a>.</p>
+</section>
+</section>
+<section id="windows">
+<h2>Windows<a class="headerlink" href="#windows" title="Link to this heading"></a></h2>
+<p>(tested on Windows 10, hopefully valid for Windows 11)</p>
+<section id="id3">
+<h3>Conda installation<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<p>If you already have a Conda installation, skip that paragraph.</p>
+<p>Download the Miniconda3 installer at <a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe">https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe</a></p>
+<p>And execute it as an administrator, typically by right-clicking on the executable file and select &quot;Run as administrator&quot;.
+Running as administrator is to make sure that you have permissions to install into <code class="file docutils literal notranslate"><span class="pre">c:\gdal</span></code> so that later instructions can be applied without modification.</p>
+<img alt="Run as Admin contextual menu" src="_images/miniconda3_run_as_admin.png" />
+<p>Validate the Welcome dialog:</p>
+<img alt="Welcome dialog" src="_images/miniconda3_install_1.png" />
+<p>Accept the license agreement:</p>
+<img alt="License agreement page" src="_images/miniconda3_install_2.png" />
+<p>Select &quot;Just Me&quot; and validate:</p>
+<img alt="Select installation type page" src="_images/miniconda3_install_3.png" />
+<p>Modify the install path to <code class="file docutils literal notranslate"><span class="pre">c:\gdal\miniconda3</span></code> and validate:</p>
+<img alt="Choose Install Location page" src="_images/miniconda3_install_4.png" />
+<p>Only select &quot;Create shortcuts&quot; and click Install:</p>
+<img alt="Advanced installation options page" src="_images/miniconda3_install_5.png" />
+<p>Once installation has completed, click Next:</p>
+<img alt="Install complete page (1/2)" src="_images/miniconda3_install_6.png" />
+<p>And finally click Finish:</p>
+<img alt="Install complete page (2/2)" src="_images/miniconda3_install_7.png" />
+</section>
+<section id="id4">
+<h3>GDAL installation in a dedicated conda environment<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<p>First, let's start a Conda enabled command line.</p>
+<p>From the Start Menu, select &quot;Anaconda Prompt&quot;</p>
+<img alt="Miniconda3 start menu entry" src="_images/miniconda3_start_menu.png" />
+<p>which will open a <code class="file docutils literal notranslate"><span class="pre">cmd</span></code> console with Conda executables available in the PATH.</p>
+<img alt="Miniconda3-enabled console" src="_images/miniconda3_start.png" />
+<p>Then we will create a Conda &quot;environment&quot; for the purpose of this workshop,
+and will call it &quot;gdal&quot;, an install it into <code class="file docutils literal notranslate"><span class="pre">c:\gdal\condaenv`gdal</span></code>.
+A Conda environment is a kind of workspace where you
+can install a set of packages that will not interfer with the ones of other
+environments. We use the &quot;conda-forge&quot; channel to get up-to-date official releases
+from the conda community.</p>
+<dl class="simple">
+<dt>::</dt><dd><p>(base) C:Usersmy_user_name&gt;conda create --prefix c:/gdal/condaenv/gdal -c conda-forge</p>
+</dd>
+</dl>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Do you accept the Terms of Service (ToS) for https://repo.anaconda.com/pkgs/main? [(a)ccept/(r)eject/(v)iew]: a
+Do you accept the Terms of Service (ToS) for https://repo.anaconda.com/pkgs/r? [(a)ccept/(r)eject/(v)iew]: a
+Do you accept the Terms of Service (ToS) for https://repo.anaconda.com/pkgs/msys2? [(a)ccept/(r)eject/(v)iew]: a
+3 channel Terms of Service accepted
+Channels:
+ - conda-forge
+ - defaults
+Platform: win-64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+
+==&gt; WARNING: A newer version of conda exists. &lt;==
+    current version: 26.1.1
+    latest version: 26.3.2
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+## Package Plan ##
+
+  environment location: c:\gdal\condaenv\gdal
+
+
+
+Proceed ([y]/n)?y
+</pre></div>
+</div>
+<p>Answer &quot;y&quot; and validate.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading and Extracting Packages:
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate c:\gdal\condaenv\gdal
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+</pre></div>
+</div>
+<p>As suggested, you need to activate the newly created environment with:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(base) C:\Users\my_user_name&gt;conda activate c:\gdal\condaenv\gdal
+</pre></div>
+</div>
+<p>When an environment is activated, new lines in the shell are prefixed with &quot;(name_of_environment)&quot;.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(c:\gdal\condaenv\gdal) C:\Users\my_user_name&gt;conda install gdal
+3 channel Terms of Service accepted
+Channels:
+ - conda-forge
+ - defaults
+Platform: win-64
+Collecting package metadata (repodata.json): \
+3 channel Terms of Service accepted
+Channels:
+ - conda-forge
+ - defaults
+Platform: win-64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+
+==&gt; WARNING: A newer version of conda exists. &lt;==
+    current version: 26.1.1
+    latest version: 26.3.2
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+## Package Plan ##
+
+  environment location: c:\gdal\condaenv\gdal
+
+  added / updated specs:
+    - gdal
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    blosc-1.21.6               |       hfd34d9b_1          49 KB  conda-forge
+    [ ... snip ... ]
+    zstd-1.5.7                 |       h534d264_6         379 KB  conda-forge
+    ------------------------------------------------------------
+                                           Total:       180.9 MB
+
+The following NEW packages will be INSTALLED:
+
+  blosc              conda-forge/win-64::blosc-1.21.6-hfd34d9b_1
+  [ ... snip ... ]
+  zstd               conda-forge/win-64::zstd-1.5.7-h534d264_6
+
+
+Proceed ([y]/n)?y
+</pre></div>
+</div>
+<p>Answer &quot;y&quot; and validate.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[ ... displaying packages in download ... ]
+
+Downloading and Extracting Packages:
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+</pre></div>
+</div>
+<p>Now let's check we got the GDAL we expected:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(c:\gdal\condaenv\gdal) C:\Users\my_user_name&gt;gdal --version
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>GDAL 3.13.0 &quot;Iowa City&quot;, released 2026/05/04
+</pre></div>
+</div>
+</section>
+<section id="install-a-bash-shell">
+<h3>Install a Bash shell<a class="headerlink" href="#install-a-bash-shell" title="Link to this heading"></a></h3>
+<p>The GDAL CLI comes with a powerfull auto-completion mechanism, but this requires
+it to be used from a Bash-compatible shell. In this paragraph, we will proceed
+to installing such shell.</p>
+<p>Download the MSYS2 installer at <a class="reference external" href="https://github.com/msys2/msys2-installer/releases/download/2026-03-22/msys2-x86_64-20260322.exe">https://github.com/msys2/msys2-installer/releases/download/2026-03-22/msys2-x86_64-20260322.exe</a></p>
+<p>And execute it as an administrator, typically by right-clicking on the executable file and select &quot;Run as administrator&quot;.
+Running as administrator is to make sure that you have permissions to install into <code class="file docutils literal notranslate"><span class="pre">c:\gdal</span></code> so that later instructions can be applied without modification.</p>
+<img alt="Run as Admin contextual menu" src="_images/msys2_run_as_admin.png" />
+<p>Click on Next:</p>
+<img alt="Welcome page" src="_images/msys2_install_1.png" />
+<p>Specify <code class="file docutils literal notranslate"><span class="pre">c:\gdal\msys64`</span></code> as the installation folder and click on Next:</p>
+<img alt="Installation folder page" src="_images/msys2_install_2.png" />
+<p>Specify &quot;msys2_gdal&quot; as the Start Menu folder and click on Next:</p>
+<img alt="Choose a Start Menu folder page" src="_images/msys2_install_3.png" />
+<p>Click on Finish:</p>
+<img alt="Install complete page" src="_images/msys2_install_4.png" />
+</section>
+<section id="create-a-launcher-script">
+<h3>Create a launcher script<a class="headerlink" href="#create-a-launcher-script" title="Link to this heading"></a></h3>
+<p>Download the script at <a class="reference external" href="https://github.com/rouault/gdal_cli_workshop/blob/master/gdal.bat">https://github.com/rouault/gdal_cli_workshop/blob/master/gdal.bat</a>
+and place it in <code class="file docutils literal notranslate"><span class="pre">c:\gdal\gdal.bat`</span></code>. This script will launch a Bash shell
+with all the necessary environment to run GDAL, include the command line completion.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="GDAL new command line interface: introduction and advanced topics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2006, Even Rouault.
+      <span class="lastupdated">Last updated on 04 May 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
